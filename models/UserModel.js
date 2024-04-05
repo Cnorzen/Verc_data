@@ -1,15 +1,23 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const UserSchema = new Schema(
+const CategorySchema = new Schema(
   {
-    username: { type: String, required: true },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true, min: 6, max: 20},
+    name: {
+      type: String,
+      required: true,
+    },
+    description: {
+      type: String,
+      required: true,
+    },
   },
-  { timestamps: true, versionKey: false }
+  {
+    timestamps: true,
+    versionKey: false,
+  }
 );
 
-const User = mongoose.model("User", UserSchema);
+const Category = mongoose.model("Category", CategorySchema);
 
-export default User;
+export default Category;

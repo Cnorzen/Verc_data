@@ -16,13 +16,14 @@
 
 import express from "express";
 import ProductController from "../controllers/productController.js";
-import checkPermission from "../middleware/checkPermission.js";
+
 import { validateCreateProduct, validateUpdateProduct } from "../middleware/validateProduct.js";
+import checkPermission from "../Middleware/checkPermission.js";
 
 const productsRouter = express.Router();
 const productController = new ProductController();
 
-// Middleware kiểm tra quyền cho các route POST, PUT, DELETE
+// middleware kiểm tra quyền cho các route POST, PUT, DELETE
 const handleValidation = async (req, res, next) => {
   const { error } = req.method === "POST" ? validateCreateProduct(req.body) : validateUpdateProduct(req.body);
   if (error) return res.status(400).json({ message: error.details[0].message });

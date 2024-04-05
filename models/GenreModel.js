@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 const Schema = mongoose.Schema;
 
-const CategorySchema = new Schema(
+const GenreSchema = new Schema(
   {
     name: {
       type: String,
@@ -18,6 +18,6 @@ const CategorySchema = new Schema(
   }
 );
 
-const Category = mongoose.model("Category", CategorySchema);
+const Genre = mongoose.model("Genre", GenreSchema);
 
-export default Category;
+export default Genre;
